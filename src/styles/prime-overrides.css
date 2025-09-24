@@ -1,0 +1,28 @@
+:root {
+  --primary-color: #00e5ff;
+  --primary-contrast-color: #001014;
+  --primary-hover-color: #26c6da;
+  --primary-active-color: #00bcd4;
+
+  --text-color: #e0f7fa;
+  --text-muted-color: #b2ebf2;
+
+  --surface-ground: #0f1214;
+  --surface-section: #13171a;
+  --surface-card: #171c20;
+  --surface-overlay: #0e1113;
+
+  --border-color: #263238;
+  --focus-ring: 0 0 0 .2rem rgba(0,229,255,.35);
+
+  --border-radius: 14px;
+}
+
+.p-button {
+  font-weight: 600;
+  border-radius: var(--border-radius);
+}
+
+.p-button.p-button-outlined {
+  border-width: 2px;
+}

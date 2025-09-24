@@ -1,0 +1,72 @@
+<navbar></navbar>
+<div class="about mx-auto p-3 md:p-5 lg:p-6" style="max-width: 1100px">
+  <!-- Header -->
+  <div class="grid align-items-center mb-4">
+    <div
+      class="col-12 md:col-2 flex justify-content-center md:justify-content-start"
+    >
+      <div class="avatar-circle shadow-2">
+        <img src="/assets/imgs/MiFoto.png" alt="Luca Monteleone" />
+      </div>
+    </div>
+    <div class="col-12 md:col-10">
+      <h2 class="m-0">Luca <span class="text-primary">Monteleone</span></h2>
+      <h4 class="mt-1 mb-3 text-400">Full Stack Developer</h4>
+      <p class="text-300 max-w-30rem">
+        Experiencia end-to-end. Backend con Java/Spring. Front con Angular. Foco
+        en escalabilidad, DX y calidad.
+      </p>
+    </div>
+  </div>
+
+  <div class="mb-7">
+    <p-divider align="center">Mi recorrido</p-divider>
+  </div>
+
+  <!-- Journey (timeline horizontal) -->
+  <div class="h-timeline">
+    <div class="h-line"></div>
+
+    <div class="h-track">
+      <ng-container *ngFor="let it of timeline">
+        <div class="h-marker" [ngClass]="[it.pos, it.type]">
+          <span class="dot" [ngClass]="it.type" tabindex="0"></span>
+          <div class="bubble" [ngClass]="[it.type, it.pos]">
+            <div class="font-bold">{{ it.title }}</div>
+            <small class="text-400">{{ it.org }}</small>
+            <div class="text-300 mt-2">{{ it.date }}</div>
+          </div>
+        </div>
+      </ng-container>
+    </div>
+  </div>
+
+  <!-- Skills -->
+  <h3 class="mb-3">Skills</h3>
+  <div class="grid mb-5">
+    <div class="col-12 md:col-4 lg:col-3" *ngFor="let s of skills">
+      <p-card class="skill">
+        <div class="flex align-items-center justify-content-between">
+          <div class="flex align-items-center gap-2">
+            <img
+              [src]="s.icon"
+              [alt]="s.name"
+              style="width: 24px; height: 24px"
+            />
+            <span class="font-medium">{{ s.name }}</span>
+          </div>
+          <p-tag [value]="s.years + ' años'"></p-tag>
+        </div>
+        <small class="text-400">{{ s.area }}</small>
+      </p-card>
+    </div>
+  </div>
+
+  <!-- Philosophy -->
+  <h3 class="mb-3">Mi filosofia</h3>
+  <p-card>
+    <em class="text-300">
+      “Código limpio, mantenible y eficiente. Soluciones que cumplen requisitos y entregan una gran experiencia.”
+    </em>
+  </p-card>
+</div>

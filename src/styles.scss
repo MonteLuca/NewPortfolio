@@ -1,0 +1,21 @@
+html, body {
+  height: 100%; margin: 0;
+}
+
+body {
+  position: relative;
+  background: url('/assets/imgs/Fondo.jpg') center/cover no-repeat fixed;
+}
+
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background: radial-gradient(
+    60% 60% at 50% 40%,
+    rgba(0, 0, 0, 0.25) 0%,
+    rgba(0, 0, 0, 0.75) 100%
+  );
+  pointer-events: none;
+  z-index: -1;
+}

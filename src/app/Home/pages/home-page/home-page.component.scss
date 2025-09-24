@@ -1,0 +1,13 @@
+.hero {
+  min-height: 100dvh;
+  padding: 0 1rem;
+
+  h1 span {
+    color: var(--primary-color);
+  }
+
+  p {
+    max-width: 40rem;
+    line-height: 1.6;
+  }
+}

@@ -1,0 +1,36 @@
+/* 1) Overrides ANTES de cargar defaults */
+$fontFamily: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+$fontSize: 14px;
+$fontWeight: 500;
+$lineHeight: 1.5;
+$borderRadius: 14px;
+
+/* Paleta */
+$primaryColor: #00e5ff;
+$edu-color: #8bc34a;
+$primaryDarkColor: #26c6da;
+$primaryTextColor: #001014;
+
+$textColor: #e0f7fa;
+$textSecondaryColor: #b2ebf2;
+
+/* 2) Exponer como variables CSS globales */
+:root {
+  --primary-color: #{$primaryColor};
+  --primary-dark-color: #{$primaryDarkColor};
+  --primary-text-color: #{$primaryTextColor};
+  --text-color: #{$textColor};
+  --text-secondary-color: #{$textSecondaryColor};
+  --edu-color: #{$edu-color};
+}
+
+/* 3) Defaults (!default) del theme-base */
+@import '../../theme-base/_variables';
+
+/* 4) Núcleo y componentes */
+@import '../../theme-base/_colors';
+@import '../../theme-base/_common';
+@import '../../theme-base/_components';
+
+/* 5) Extensiones propias */
+@import './_extensions';

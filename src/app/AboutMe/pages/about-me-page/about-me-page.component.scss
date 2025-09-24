@@ -1,0 +1,109 @@
+/* Layout local */
+.container { max-width: 1100px; }
+
+/* Avatar */
+.avatar-circle{
+  width:140px;height:140px;border-radius:20%;
+  overflow:hidden;border:2px solid rgba(255,255,255,.15);
+  img{width:100%;height:100%;object-fit:cover;display:block;}
+}
+
+/* TIMELINE */
+.h-timeline{
+  position: relative;
+  --dot: 16px;          /* diámetro del punto */
+  --gap: 22px;          /* distancia línea↔punto */
+  height: 140px;
+  padding: 0;
+}
+
+.h-line{
+  position: absolute; inset-inline: 0; top: 50%;
+  height: 2px; background: rgba(255,255,255,.18); z-index: 1;
+}
+
+.h-track{
+  position: absolute; inset: 0;
+  display: flex; justify-content: space-between; align-items: center;
+  z-index: 2;
+}
+
+.h-marker{ position: relative; width: 1px; }
+
+/* Stems */
+.h-marker::before{
+  content:""; position:absolute; left:50%; transform:translateX(-50%);
+  width:2px; background: rgba(255,255,255,.25); z-index: 0;
+}
+.h-marker.up::before   { top: calc(50% - var(--gap)); height: var(--gap); }  /* sube */
+.h-marker.down::before { top: 50%;                        height: var(--gap); }  /* baja */
+
+/* Punto */
+.dot{
+  position:absolute; left:50%; transform:translateX(-50%);
+  width:var(--dot); height:var(--dot); border-radius:50%;
+  border:2px solid rgba(255,255,255,.25); cursor:pointer;
+  z-index:3; outline:0; background: transparent !important;
+  transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+}
+/* círculo sólido con pseudo-elemento */
+.dot::after{
+  content:""; position:absolute; inset:2px; border-radius:50%;
+  background-color: currentColor;   /* usa color del punto */
+}
+
+/* posiciones del punto */
+.h-marker.up   .dot{ top:  calc(50% - var(--gap) - var(--dot)/2); }
+.h-marker.down .dot{ top:  calc(50% + var(--gap) - var(--dot)/2); }
+
+/* colores */
+.dot.work{ color: var(--primary-color);  border-color: rgba(0,229,255,.45); }
+.dot.edu { color: var(--edu-color);       border-color: rgba(139,195,74,.45); }
+
+/* hover */
+.dot.work:hover,
+.dot.work:focus-visible{
+  transform: translateX(-50%) scale(1.25);
+  border-color: rgba(0,229,255,.8);
+  box-shadow: 0 0 0 6px rgba(0,229,255,.12);
+}
+.dot.edu:hover,
+.dot.edu:focus-visible{
+  transform: translateX(-50%) scale(1.25);
+  border-color: rgba(139,195,74,.8);
+  box-shadow: 0 0 0 6px rgba(139,195,74,.12);
+}
+
+/* Bubbles: SOLO cuando el punto tiene hover/focus */
+.bubble{
+  position:absolute; left:50%; min-width:180px;
+  padding:.75rem 1rem; border-radius:.75rem;
+  background:rgba(13,18,22,.95); border:1px solid rgba(255,255,255,.12);
+  text-align:center; box-shadow:0 8px 24px rgba(0,0,0,.35);
+  opacity:0; pointer-events:none; transition:opacity .15s, transform .15s;
+  z-index:4; transform:translateX(-50%);
+}
+.dot:hover + .bubble,
+.dot:focus-visible + .bubble{ opacity:1; }
+
+/* posiciones (ajuste fino extra) */
+.bubble.up{    /* TRABAJO (azul) arriba */
+  top:  calc(50% - var(--gap) - 22px);
+  transform: translate(-50%, -100%);
+}
+.bubble.down{  /* EDUCACIÓN (verde) abajo */
+  top:  calc(50% + var(--gap) + 22px);
+  transform: translateX(-50%);
+}
+
+/* flechas */
+.bubble::after{
+  content:""; position:absolute; left:50%; transform:translateX(-50%);
+  width:0; height:0; border-left:8px solid transparent; border-right:8px solid transparent;
+}
+.bubble.up::after   { bottom:-8px; border-top:    8px solid rgba(13,18,22,.95); }
+.bubble.down::after { top:   -8px; border-bottom: 8px solid rgba(13,18,22,.95); }
+
+/* opcional: stem tintado por tipo */
+.h-marker.work::before { background: rgba(0,229,255,.35); }
+.h-marker.edu::before  { background: rgba(139,195,74,.35); }
