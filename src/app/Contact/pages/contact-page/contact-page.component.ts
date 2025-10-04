@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
+import { MessageService } from 'primeng/api';
+import { ContactService } from '../../services/contact-service';
+import { finalize } from 'rxjs';
 
 @Component({
   selector: 'app-contact-page',
@@ -9,7 +12,6 @@ import { FormBuilder, Validators } from '@angular/forms';
 export class ContactPageComponent {
 
   readonly whatsappNumber = '5492615120574';
-
   sending = false;
 
   form = this.fb.group({
@@ -19,30 +21,33 @@ export class ContactPageComponent {
     message: ['', [Validators.required, Validators.minLength(10)]],
   });
 
-  constructor(private fb: FormBuilder) {}
+  constructor(
+    private fb: FormBuilder,
+    private contactSvc: ContactService,
+    private toast: MessageService
+  ) {}
 
   get f() { return this.form.controls; }
 
-  sendToWhatsApp() {
+  sendByEmail() {
     if (this.form.invalid) {
       this.form.markAllAsTouched();
       return;
     }
     this.sending = true;
 
-    const v = this.form.value;
-    const text =
-      `Nuevo contacto desde el portfolio:%0A` +
-      `• Nombre: ${v.name}%0A` +
-      `• Email: ${v.email}%0A` +
-      `• Asunto: ${v.subject}%0A` +
-      `• Mensaje:%0A${(v.message || '').trim()}`;
-
-    const url = `https://wa.me/${this.whatsappNumber}?text=${encodeURIComponent(text)}`;
-
-    // Abrimos en nueva pestaña para no romper SPA
-    window.open(url, '_blank', 'noopener,noreferrer');
-    this.sending = false;
+    this.contactSvc.send(this.form.value as any)
+      .pipe(finalize(() => this.sending = false))
+      .subscribe({
+        next: () => {
+          this.toast.add({ severity: 'success', summary: 'Enviado', detail: '¡Gracias! Te respondo a la brevedad.' });
+          this.form.reset();
+        },
+        error: (err) => {
+          console.error(err);
+          this.toast.add({ severity: 'error', summary: 'Ups', detail: 'No se pudo enviar. Intenta de nuevo.' });
+        }
+      });
   }
 
 }

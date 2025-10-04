@@ -1,5 +1,7 @@
 <navbar></navbar>
 
+<p-toast></p-toast>
+
 <div class="container mx-auto p-4 md:p-6">
   <header class="text-center mb-5">
     <h2 class="mb-2">Get in Touch</h2>
@@ -8,38 +10,37 @@
     </p>
   </header>
 
-  <!-- Centro con PrimeFlex grid -->
   <div class="grid justify-content-center">
     <div class="col-12 md:col-8 lg:col-5">
       <p-card styleClass="contact-card">
-        <!-- p-fluid hace que los inputs ocupen 100% -->
-        <form class="p-fluid form-gap" [formGroup]="form" (ngSubmit)="sendToWhatsApp()">
+        <form class="p-fluid form-gap" [formGroup]="form" (ngSubmit)="sendByEmail()">
           <div class="field">
-            <input pInputText formControlName="name" placeholder="Your Name" />
+            <input pInputText formControlName="name" placeholder="Tu nombre" />
           </div>
 
           <div class="field">
-            <input pInputText type="email" formControlName="email" placeholder="Your Email" />
+            <input pInputText type="email" formControlName="email" placeholder="Tu email" />
           </div>
 
           <div class="field">
-            <input pInputText formControlName="subject" placeholder="Subject" />
+            <input pInputText formControlName="subject" placeholder="Asunto" />
           </div>
 
           <div class="field">
-            <!-- Alto fijo y sin resize -->
             <textarea
               pInputTextarea
               class="no-resize"
               [autoResize]="false"
               rows="6"
               formControlName="message"
-              placeholder="Your Message">
+              placeholder="Tu mensaje">
             </textarea>
           </div>
 
-          <div class="flex justify-content-end">
-            <button pButton label="Send Message" type="submit" [disabled]="form.invalid || sending"></button>
+          <div class="flex justify-content-end gap-2">
+            <button pButton label="Enviar Mensaje" type="submit"
+                    [disabled]="form.invalid || sending"
+                    [loading]="sending"></button>
           </div>
         </form>
       </p-card>

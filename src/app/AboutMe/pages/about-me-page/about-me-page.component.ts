@@ -7,7 +7,6 @@ import { Component } from '@angular/core';
 })
 export class AboutMePageComponent {
   timeline = [
-    // --- Educación base ---
     {
       pos: 'down',
       type: 'edu',
@@ -16,7 +15,6 @@ export class AboutMePageComponent {
       date: '2015–2019',
     },
 
-    // --- Experiencia inicial ---
     {
       pos: 'up',
       type: 'work',
@@ -46,7 +44,6 @@ export class AboutMePageComponent {
       date: 'sep 2023–ago 2024',
     },
 
-    // --- Experiencia actual ---
     {
       pos: 'up',
       type: 'work',
@@ -69,7 +66,6 @@ export class AboutMePageComponent {
       date: 'jul 2025–oct 2025',
     },
 
-    // --- Cursos y certificaciones ---
     {
       pos: 'down',
       type: 'edu',

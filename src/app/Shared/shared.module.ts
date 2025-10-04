@@ -11,6 +11,7 @@ import { ToolbarModule } from 'primeng/toolbar';
 import { TooltipModule } from 'primeng/tooltip';
 import { InputTextModule } from 'primeng/inputtext';
 import { InputTextareaModule } from 'primeng/inputtextarea';
+import { ToastModule } from 'primeng/toast';
 
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { RouterModule } from '@angular/router';
@@ -28,7 +29,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     TagModule,
     TimelineModule,
     ToolbarModule,
-    TooltipModule
+    TooltipModule,
+    ToastModule
   ],
   exports: [
     ButtonModule,
@@ -43,7 +45,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     NavbarComponent,
     ReactiveFormsModule,
     InputTextModule,
-    InputTextareaModule
+    InputTextareaModule,
+    ToastModule
   ],
   declarations: [
     NavbarComponent
