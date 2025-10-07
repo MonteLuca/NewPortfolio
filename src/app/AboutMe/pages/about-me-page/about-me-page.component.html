@@ -22,7 +22,8 @@
     <p-divider align="center">Mi recorrido</p-divider>
   </div>
 
-  <div class="h-timeline">
+  <!-- Timeline Desktop -->
+  <div class="h-timeline hidden md:block">
     <div class="h-line"></div>
 
     <div class="h-track">
@@ -30,6 +31,24 @@
         <div class="h-marker" [ngClass]="[it.pos, it.type]">
           <span class="dot" [ngClass]="it.type" tabindex="0"></span>
           <div class="bubble" [ngClass]="[it.type, it.pos]">
+            <div class="font-bold">{{ it.title }}</div>
+            <small class="text-400">{{ it.org }}</small>
+            <div class="text-300 mt-2">{{ it.date }}</div>
+          </div>
+        </div>
+      </ng-container>
+    </div>
+  </div>
+
+  <!-- Timeline Mobile -->
+  <div class="mobile-timeline md:hidden">
+    <div class="mobile-timeline-line"></div>
+    
+    <div class="mobile-timeline-content">
+      <ng-container *ngFor="let it of timeline; let i = index">
+        <div class="mobile-timeline-item" [ngClass]="{'reverse': i % 2 === 1}">
+          <div class="mobile-timeline-dot" [ngClass]="it.type"></div>
+          <div class="mobile-timeline-bubble">
             <div class="font-bold">{{ it.title }}</div>
             <small class="text-400">{{ it.org }}</small>
             <div class="text-300 mt-2">{{ it.date }}</div>

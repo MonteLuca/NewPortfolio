@@ -95,3 +95,77 @@
 
 .h-marker.work::before { background: rgba(0,229,255,.35); }
 .h-marker.edu::before  { background: rgba(139,195,74,.35); }
+
+// Mobile Timeline - usando PrimeFlex al máximo
+.mobile-timeline {
+  position: relative;
+  padding: 2rem 0;
+}
+
+// Sin línea vertical
+.mobile-timeline-line { 
+  display: none; 
+}
+
+.mobile-timeline-content {
+  position: relative;
+  z-index: 2;
+}
+
+.mobile-timeline-item {
+  position: relative;
+  margin-bottom: 2rem;
+  padding-left: 4rem;
+  
+  // Sin líneas diagonales
+  &::before {
+    display: none;
+  }
+  
+  &.reverse {
+    padding-left: 0;
+    padding-right: 4rem;
+    // text-align: right; // Removido para centrar todo
+    
+    // Sin líneas diagonales
+    &::before {
+      display: none;
+    }
+  }
+}
+
+.mobile-timeline-dot {
+  position: absolute;
+  left: 1rem;
+  top: 0.5rem;
+  width: 1rem;
+  height: 1rem;
+  border-radius: 50%;
+  border: 2px solid;
+  z-index: 3;
+  
+  &.work {
+    background: var(--primary-color);
+    border-color: rgba(0, 229, 255, 0.45);
+  }
+  
+  &.edu {
+    background: var(--edu-color);
+    border-color: rgba(139, 195, 74, 0.45);
+  }
+}
+
+.mobile-timeline-item.reverse .mobile-timeline-dot {
+  left: auto;
+  right: 1rem;
+}
+
+.mobile-timeline-bubble {
+  background: rgba(13, 18, 22, 0.95);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 0.75rem;
+  padding: 1rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.35);
+  min-width: 200px;
+  text-align: center; // Centra el contenido de la card
+}

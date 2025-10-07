@@ -1,33 +1,114 @@
 <p-toolbar class="navbar">
-  <div class="p-toolbar-group-left gap-3">
-    <i class="pi pi-desktop" style="font-size: 1rem"></i>
-    <a routerLink="/" class="font-bold">Luca Monteleone</a>
+  <!-- Logo y nombre (siempre visible) -->
+  <div class="p-toolbar-group-left">
+    <div class="flex align-items-center gap-3">
+      <i class="pi pi-desktop text-xl"></i>
+      <a routerLink="/" class="nav-logo font-bold text-xl md:text-2xl">Luca Monteleone</a>
+    </div>
   </div>
-  <div class="p-toolbar-group-right gap-3">
+
+  <!-- Menú desktop (oculto en móvil - hidden lg:flex) -->
+  <div class="p-toolbar-group-right hidden lg:flex">
+    <div class="flex align-items-center gap-4">
+      <a
+        routerLink="/about"
+        routerLinkActive="active"
+        [routerLinkActiveOptions]="{ exact: true }"
+        class="nav-link text-color-secondary hover:text-primary cursor-pointer transition-colors transition-duration-300"
+      >Sobre mí</a>
+      <a
+        routerLink="/projects"
+        routerLinkActive="active"
+        [routerLinkActiveOptions]="{ exact: true }"
+        class="nav-link text-color-secondary hover:text-primary cursor-pointer transition-colors transition-duration-300"
+      >Proyectos</a>
+      <a
+        routerLink="/jobs"
+        routerLinkActive="active"
+        [routerLinkActiveOptions]="{ exact: true }"
+        class="nav-link text-color-secondary hover:text-primary cursor-pointer transition-colors transition-duration-300"
+      >Experiencias</a>
+      <a
+        routerLink="/contact"
+        routerLinkActive="active"
+        [routerLinkActiveOptions]="{ exact: true }"
+        class="nav-link text-color-secondary hover:text-primary cursor-pointer transition-colors transition-duration-300"
+      >Contacto</a>
+      <p-button label="Descargar CV" [outlined]="true" icon="pi pi-download"/>
+    </div>
+  </div>
+
+  <!-- Botón hamburguesa (visible solo en móvil - flex lg:hidden) -->
+  <div class="p-toolbar-group-right flex lg:hidden">
+    <p-button
+      icon="pi pi-bars"
+      [text]="true"
+      [rounded]="true"
+      (onClick)="toggleSidebar()"
+      severity="secondary"
+    />
+  </div>
+</p-toolbar>
+
+<!-- Sidebar para menú móvil -->
+<p-sidebar [(visible)]="sidebarVisible" position="right" [style]="{width: '280px'}">
+  <ng-template pTemplate="header">
+    <div class="flex align-items-center gap-2">
+      <i class="pi pi-desktop"></i>
+      <span class="font-bold">Menú</span>
+    </div>
+  </ng-template>
+
+  <div class="flex flex-column gap-2 pt-3">
     <a
       routerLink="/about"
       routerLinkActive="active"
       [routerLinkActiveOptions]="{ exact: true }"
-      >Sobre mí</a
+      class="mobile-nav-link flex align-items-center gap-3 p-3 border-round text-color cursor-pointer hover:surface-hover transition-colors transition-duration-300"
+      (click)="closeSidebar()"
     >
+      <i class="pi pi-user text-xl" style="width: 24px"></i>
+      <span>Sobre mí</span>
+    </a>
     <a
       routerLink="/projects"
       routerLinkActive="active"
       [routerLinkActiveOptions]="{ exact: true }"
-      >Proyectos</a
+      class="mobile-nav-link flex align-items-center gap-3 p-3 border-round text-color cursor-pointer hover:surface-hover transition-colors transition-duration-300"
+      (click)="closeSidebar()"
     >
+      <i class="pi pi-code text-xl" style="width: 24px"></i>
+      <span>Proyectos</span>
+    </a>
     <a
       routerLink="/jobs"
       routerLinkActive="active"
       [routerLinkActiveOptions]="{ exact: true }"
-      >Experiencias</a
+      class="mobile-nav-link flex align-items-center gap-3 p-3 border-round text-color cursor-pointer hover:surface-hover transition-colors transition-duration-300"
+      (click)="closeSidebar()"
     >
+      <i class="pi pi-briefcase text-xl" style="width: 24px"></i>
+      <span>Experiencias</span>
+    </a>
     <a
       routerLink="/contact"
       routerLinkActive="active"
       [routerLinkActiveOptions]="{ exact: true }"
-      >Contacto</a
+      class="mobile-nav-link flex align-items-center gap-3 p-3 border-round text-color cursor-pointer hover:surface-hover transition-colors transition-duration-300"
+      (click)="closeSidebar()"
     >
-    <p-button label="Descargar CV" [outlined]="true"/>
+      <i class="pi pi-envelope text-xl" style="width: 24px"></i>
+      <span>Contacto</span>
+    </a>
+    
+    <div class="mt-4 px-3">
+      <p-button 
+        label="Descargar CV" 
+        [outlined]="true" 
+        icon="pi pi-download"
+        styleClass="w-full"
+        (onClick)="closeSidebar()"
+      />
+    </div>
   </div>
-</p-toolbar>
+</p-sidebar>
