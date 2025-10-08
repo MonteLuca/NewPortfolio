@@ -15,4 +15,8 @@ export class NavbarComponent {
   closeSidebar() {
     this.sidebarVisible = false;
   }
+
+  downloadCV() {
+    window.open('https://drive.google.com/file/d/1PhQmfPk9p8fwWtJ-Ak3mAzj3wQR9zV74/view', '_blank');
+  }
 }

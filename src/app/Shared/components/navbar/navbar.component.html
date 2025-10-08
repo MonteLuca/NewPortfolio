@@ -34,7 +34,33 @@
         [routerLinkActiveOptions]="{ exact: true }"
         class="nav-link text-color-secondary hover:text-primary cursor-pointer transition-colors transition-duration-300"
       >Contacto</a>
-      <p-button label="Descargar CV" [outlined]="true" icon="pi pi-download"/>
+      
+      <!-- Iconos de redes sociales -->
+      <div class="flex gap-2">
+        <a 
+          href="https://www.linkedin.com/in/luca-monteleone/" 
+          target="_blank" 
+          class="social-icon"
+          title="LinkedIn"
+        >
+          <i class="pi pi-linkedin text-xl text-color-secondary hover:text-primary transition-colors transition-duration-300"></i>
+        </a>
+        <a 
+          href="https://github.com/MonteLuca" 
+          target="_blank" 
+          class="social-icon"
+          title="GitHub"
+        >
+          <i class="pi pi-github text-xl text-color-secondary hover:text-primary transition-colors transition-duration-300"></i>
+        </a>
+      </div>
+      
+      <p-button 
+        label="Descargar CV" 
+        [outlined]="true" 
+        icon="pi pi-download"
+        (onClick)="downloadCV()"
+        class="p-button-outlined"/>
     </div>
   </div>
 
@@ -101,13 +127,36 @@
       <span>Contacto</span>
     </a>
     
+    <!-- Iconos de redes sociales en móvil -->
+    <div class="flex justify-content-center gap-3 mt-4 px-3">
+      <a 
+        href="https://www.linkedin.com/in/luca-monteleone/" 
+        target="_blank" 
+        class="social-icon"
+        title="LinkedIn"
+        (click)="closeSidebar()"
+      >
+        <i class="pi pi-linkedin text-2xl text-color-secondary hover:text-primary transition-colors transition-duration-300"></i>
+      </a>
+      <a 
+        href="https://github.com/MonteLuca" 
+        target="_blank" 
+        class="social-icon"
+        title="GitHub"
+        (click)="closeSidebar()"
+      >
+        <i class="pi pi-github text-2xl text-color-secondary hover:text-primary transition-colors transition-duration-300"></i>
+      </a>
+    </div>
+    
     <div class="mt-4 px-3">
       <p-button 
         label="Descargar CV" 
         [outlined]="true" 
         icon="pi pi-download"
         styleClass="w-full"
-        (onClick)="closeSidebar()"
+        (onClick)="downloadCV(); closeSidebar()"
+        class="p-button-outlined w-full"
       />
     </div>
   </div>

@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { ButtonModule } from 'primeng/button';
 import { CardModule } from 'primeng/card';
+import { CarouselModule } from 'primeng/carousel';
 import { DividerModule } from 'primeng/divider';
 import { OverlayPanelModule } from 'primeng/overlaypanel';
 import { TagModule } from 'primeng/tag';
@@ -24,6 +25,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     CommonModule,
     ButtonModule,
     CardModule,
+    CarouselModule,
     DividerModule,
     OverlayPanelModule,
     RouterModule,
@@ -37,6 +39,7 @@ import { ReactiveFormsModule } from '@angular/forms';
   exports: [
     ButtonModule,
     CardModule,
+    CarouselModule,
     DividerModule,
     OverlayPanelModule,
     TagModule,

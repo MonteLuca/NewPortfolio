@@ -56,14 +56,14 @@ export class AboutMePageComponent {
       type: 'work',
       title: 'WordPress Dev',
       org: 'ClickToFish',
-      date: 'may 2025–sep 2025',
+      date: 'may 2025–Presente',
     },
     {
       pos: 'up',
       type: 'work',
       title: 'WordPress Dev',
       org: 'SUPOVA',
-      date: 'jul 2025–oct 2025',
+      date: 'jul 2025–Presente',
     },
 
     {

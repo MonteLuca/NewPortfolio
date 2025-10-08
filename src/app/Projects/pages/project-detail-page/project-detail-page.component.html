@@ -8,7 +8,26 @@
     </div>
   </div>
 
-  <img class="hero" [src]="p.cover" [alt]="p.title">
+  <!-- Galería de imágenes con carrusel -->
+  <section class="mt-4" *ngIf="p.gallery && p.gallery.length > 1">
+    <h3>Galería del Proyecto</h3>
+    <p-carousel 
+      [value]="p.gallery" 
+      [numVisible]="1" 
+      [numScroll]="1" 
+      [circular]="true"
+      [autoplayInterval]="0"
+      styleClass="custom-carousel">
+      <ng-template let-image pTemplate="item">
+        <div class="carousel-image-container">
+          <img [src]="image" [alt]="p.title" class="carousel-image" />
+        </div>
+      </ng-template>
+    </p-carousel>
+  </section>
+
+  <!-- Imagen principal si no hay galería o solo hay una imagen -->
+  <img class="hero" [src]="p.cover" [alt]="p.title" *ngIf="!p.gallery || p.gallery.length <= 1">
 
   <section class="mt-4">
     <h3>Vista General</h3>
