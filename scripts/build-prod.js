@@ -6,7 +6,7 @@ const envPath = path.join(__dirname, '../src/environments/environment.prod.ts');
 let envContent = fs.readFileSync(envPath, 'utf8');
 
 // Reemplazar el valor vacío con la variable de entorno
-const apiBaseUrl = process.env.API_BASE_URL || '';
+const apiBaseUrl = process.env.PORTFOLIO_API_URL || process.env.API_BASE_URL || '';
 envContent = envContent.replace("apiBase: ''", `apiBase: '${apiBaseUrl}'`);
 
 // Escribir el archivo modificado
