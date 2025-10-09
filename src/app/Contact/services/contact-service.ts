@@ -11,6 +11,6 @@ export class ContactService {
   }
 
   send(payload: ContactRequest) {
-    return this.http.post<void>(`${this.base}/api/contact`, payload);
+    return this.http.post<void>(`${this.base}api/contact`, payload);
   }
 }
