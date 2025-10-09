@@ -1,6 +1,4 @@
-import { environmentSecret } from './environment.secret';
-
 export const environment = {
   production: true,
-  apiBase: environmentSecret.productionApiBase
+  apiBase: process.env['API_BASE_URL'] || ''
 };
