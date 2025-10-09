@@ -64,4 +64,33 @@ export const PROJECTS: Project[] = [
     demoUrl: 'https://pipesapp-luca-monteleone.netlify.app/', 
     repoUrl: 'https://github.com/MonteLuca/Comienzos-Angular-2.0'
   },
+  {
+    slug: 'new-portfolio',
+    title: 'NewPortfolio',
+    subtitle: 'Portfolio Profesional Moderno',
+    cover: '/assets/imgs/imgsProyects/NewPortfolio.jpg',
+    gallery: [
+      '/assets/imgs/imgsProyects/NewPortfolio.jpg'
+    ],
+    overview: 'Portfolio profesional moderno y responsivo desarrollado con Angular 17 y PrimeNG. Incluye secciones de experiencia, proyectos, habilidades y formulario de contacto funcional. Diseño optimizado para diferentes dispositivos con tema oscuro personalizado.',
+    stack: ['Angular 17', 'PrimeNG', 'PrimeFlex', 'TypeScript', 'SCSS', 'RxJS'],
+    challenges: 'Implementación de diseño responsivo, integración con microservicio backend, configuración de variables de entorno seguras, optimización de performance y SEO.',
+    results: 'Portfolio completamente funcional con navegación fluida, formulario de contacto operativo, galería de proyectos interactiva y diseño profesional.',
+    demoUrl: 'https://lucamonteleone-portfolio.netlify.app/',
+    repoUrl: 'https://github.com/MonteLuca/NewPortfolio'
+  },
+  {
+    slug: 'contact-microservice',
+    title: 'Contact Microservice',
+    subtitle: 'Microservicio de Gestión de Emails',
+    cover: '/assets/imgs/imgsProyects/Microservice.jpg',
+    gallery: [
+      '/assets/imgs/imgsProyects/Microservice.jpg'
+    ],
+    overview: 'Microservicio backend desarrollado con Spring Boot para la gestión de emails del portfolio. Soporta múltiples proveedores de email (Resend API y SMTP), validación robusta de datos y configuración CORS optimizada.',
+    stack: ['Spring Boot', 'Java', 'Resend API', 'SMTP', 'Docker', 'Railway'],
+    challenges: 'Configuración de múltiples proveedores de email, implementación de validaciones robustas, configuración CORS para frontend, containerización y despliegue en la nube.',
+    results: 'Microservicio estable y escalable que maneja eficientemente las solicitudes de contacto del portfolio con alta disponibilidad.',
+    repoUrl: 'https://github.com/MonteLuca/ContactPortfolioMicroservice'
+  }
 ];
