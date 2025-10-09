@@ -31,8 +31,8 @@
   content:""; position:absolute; left:50%; transform:translateX(-50%);
   width:2px; background: rgba(255,255,255,.25); z-index: 0;
 }
-.h-marker.up::before   { top: calc(50% - var(--gap)); height: var(--gap); }  /* sube */
-.h-marker.down::before { top: 50%;                        height: var(--gap); }  /* baja */
+.h-marker.up::before   { top: calc(50% - var(--gap)); height: var(--gap); }
+.h-marker.down::before { top: 50%;                        height: var(--gap); }
 
 .dot{
   position:absolute; left:50%; transform:translateX(-50%);
@@ -115,7 +115,6 @@
   margin-bottom: 2rem;
   padding-left: 4rem;
   
-  // Sin líneas diagonales
   &::before {
     display: none;
   }
