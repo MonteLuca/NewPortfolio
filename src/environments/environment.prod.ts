@@ -1,4 +1,6 @@
+import { config } from './config.prod';
+
 export const environment = {
   production: true,
-  apiBase: ''
+  apiBase: config.apiBase
 };
