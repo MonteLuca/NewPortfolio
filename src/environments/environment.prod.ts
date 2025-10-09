@@ -1,4 +1,6 @@
+import { environmentSecret } from './environment.secret';
+
 export const environment = {
   production: true,
-  apiBase: 'https://contactportfoliomicroservice-production.up.railway.app'
+  apiBase: environmentSecret.productionApiBase
 };

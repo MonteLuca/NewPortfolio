@@ -1,5 +1,4 @@
 <p-toolbar class="navbar">
-  <!-- Logo y nombre (siempre visible) -->
   <div class="p-toolbar-group-left">
     <div class="flex align-items-center gap-3">
       <i class="pi pi-desktop text-xl"></i>
@@ -7,7 +6,6 @@
     </div>
   </div>
 
-  <!-- Menú desktop (oculto en móvil - hidden lg:flex) -->
   <div class="p-toolbar-group-right hidden lg:flex">
     <div class="flex align-items-center gap-4">
       <a
@@ -35,7 +33,6 @@
         class="nav-link text-color-secondary hover:text-primary cursor-pointer transition-colors transition-duration-300"
       >Contacto</a>
       
-      <!-- Iconos de redes sociales -->
       <div class="flex gap-2">
         <a 
           href="https://www.linkedin.com/in/luca-monteleone/" 
@@ -64,7 +61,6 @@
     </div>
   </div>
 
-  <!-- Botón hamburguesa (visible solo en móvil - flex lg:hidden) -->
   <div class="p-toolbar-group-right flex lg:hidden">
     <p-button
       icon="pi pi-bars"
@@ -76,7 +72,6 @@
   </div>
 </p-toolbar>
 
-<!-- Sidebar para menú móvil -->
 <p-sidebar [(visible)]="sidebarVisible" position="right" [style]="{width: '280px'}">
   <ng-template pTemplate="header">
     <div class="flex align-items-center gap-2">
@@ -127,7 +122,6 @@
       <span>Contacto</span>
     </a>
     
-    <!-- Iconos de redes sociales en móvil -->
     <div class="flex justify-content-center gap-3 mt-4 px-3">
       <a 
         href="https://www.linkedin.com/in/luca-monteleone/" 

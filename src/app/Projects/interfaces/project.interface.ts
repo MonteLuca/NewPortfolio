@@ -3,7 +3,7 @@ export interface Project {
   title: string;
   subtitle?: string;
   cover: string;
-  gallery?: string[]; // Array de imágenes adicionales para el carrusel
+  gallery?: string[];
   overview: string;
   stack: string[];
   challenges?: string;

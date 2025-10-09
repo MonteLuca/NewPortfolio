@@ -8,7 +8,6 @@
     </div>
   </div>
 
-  <!-- Galería de imágenes con carrusel -->
   <section class="mt-4" *ngIf="p.gallery && p.gallery.length > 1">
     <h3>Galería del Proyecto</h3>
     <p-carousel 
@@ -26,7 +25,6 @@
     </p-carousel>
   </section>
 
-  <!-- Imagen principal si no hay galería o solo hay una imagen -->
   <img class="hero" [src]="p.cover" [alt]="p.title" *ngIf="!p.gallery || p.gallery.length <= 1">
 
   <section class="mt-4">

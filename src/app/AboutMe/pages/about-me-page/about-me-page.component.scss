@@ -96,13 +96,11 @@
 .h-marker.work::before { background: rgba(0,229,255,.35); }
 .h-marker.edu::before  { background: rgba(139,195,74,.35); }
 
-// Mobile Timeline - usando PrimeFlex al máximo
 .mobile-timeline {
   position: relative;
   padding: 2rem 0;
 }
 
-// Sin línea vertical
 .mobile-timeline-line { 
   display: none; 
 }
@@ -125,9 +123,7 @@
   &.reverse {
     padding-left: 0;
     padding-right: 4rem;
-    // text-align: right; // Removido para centrar todo
     
-    // Sin líneas diagonales
     &::before {
       display: none;
     }
@@ -167,5 +163,5 @@
   padding: 1rem;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.35);
   min-width: 200px;
-  text-align: center; // Centra el contenido de la card
+  text-align: center;
 }
