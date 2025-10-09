@@ -5,7 +5,7 @@
 [[plugins]]
   package = "@netlify/plugin-replace"
 
-[[plugins.inputs]]
+[plugins.inputs]
   for = "src/environments/environment.prod.ts"
   from = "apiBase: ''"
   to = "apiBase: '${API_BASE_URL}'"
